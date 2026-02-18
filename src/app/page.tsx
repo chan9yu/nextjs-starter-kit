@@ -1,52 +1,85 @@
-import Image from "next/image";
+import { Code, Moon, Palette, Rocket, Zap } from "lucide-react";
+import dynamic from "next/dynamic";
+import type { ComponentProps } from "react";
 
-export default function Home() {
+import { FeatureCard } from "../features/home";
+import { Container } from "../shared/layouts";
+import { Badge, Button, Skeleton } from "../shared/ui";
+
+const ComponentShowcase = dynamic(
+	() => import("../features/showcase").then((m) => ({ default: m.ComponentShowcase })),
+	{ loading: () => <Skeleton className="h-96 w-full" /> }
+);
+
+const FEATURES: ComponentProps<typeof FeatureCard>[] = [
+	{
+		icon: <Zap size={20} />,
+		title: "Next.js 16",
+		description: "App Router, Server Components, 그리고 React 19의 최신 기능을 활용합니다."
+	},
+	{
+		icon: <Palette size={20} />,
+		title: "TailwindCSS v4",
+		description: "CSS-first 설정과 @theme 디렉티브로 디자인 토큰을 관리합니다."
+	},
+	{
+		icon: <Moon size={20} />,
+		title: "다크 모드",
+		description: "시스템 설정 감지, 수동 토글, FOUC 방지가 내장된 다크모드를 지원합니다."
+	},
+	{
+		icon: <Code size={20} />,
+		title: "TypeScript Strict",
+		description: "엄격한 타입 검사로 안전하고 견고한 코드를 작성합니다."
+	},
+	{
+		icon: <Rocket size={20} />,
+		title: "개발 도구",
+		description: "ESLint, Prettier, Lefthook으로 코드 품질을 자동으로 관리합니다."
+	}
+];
+
+export default function HomePage() {
 	return (
-		<div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-			<main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between bg-white px-16 py-32 sm:items-start dark:bg-black">
-				<Image className="dark:invert" src="/next.svg" alt="Next.js logo" width={100} height={20} priority />
-				<div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-					<h1 className="max-w-xs text-3xl leading-10 font-semibold tracking-tight text-black dark:text-zinc-50">
-						To get started, edit the page.tsx file.
-					</h1>
-					<p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-						Looking for a starting point or more instructions? Head over to{" "}
-						<a
-							href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-							className="font-medium text-zinc-950 dark:text-zinc-50"
-						>
-							Templates
-						</a>{" "}
-						or the{" "}
-						<a
-							href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-							className="font-medium text-zinc-950 dark:text-zinc-50"
-						>
-							Learning
-						</a>{" "}
-						center.
-					</p>
-				</div>
-				<div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-					<a
-						className="bg-foreground text-background flex h-12 w-full items-center justify-center gap-2 rounded-full px-5 transition-colors hover:bg-[#383838] md:w-39.5 dark:hover:bg-[#ccc]"
-						href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+		<Container>
+			<section className="flex flex-col items-center gap-6 py-24 text-center sm:py-32">
+				<Badge variant="secondary">v0.1.0</Badge>
+				<h1 className="text-foreground text-4xl font-bold tracking-tight sm:text-5xl">Next.js Starter Kit</h1>
+				<p className="text-muted-foreground max-w-2xl text-lg leading-relaxed">
+					빠르게 웹 개발을 시작하세요. Next.js 16, TypeScript, TailwindCSS v4가 최적의 설정으로 준비되어 있습니다.
+				</p>
+				<div className="flex gap-4">
+					<Button size="lg">시작하기</Button>
+					<Button
+						as="a"
+						href="https://github.com/chan9yu/nextjs-starter-kit"
 						target="_blank"
 						rel="noopener noreferrer"
+						variant="outline"
+						size="lg"
 					>
-						<Image className="dark:invert" src="/vercel.svg" alt="Vercel logomark" width={16} height={16} />
-						Deploy Now
-					</a>
-					<a
-						className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/8 px-5 transition-colors hover:border-transparent hover:bg-black/4 md:w-39.5 dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
-						href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						Documentation
-					</a>
+						GitHub
+					</Button>
 				</div>
-			</main>
-		</div>
+			</section>
+
+			<section className="pb-16">
+				<div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+					{FEATURES.map((feature) => (
+						<FeatureCard
+							key={feature.title}
+							icon={feature.icon}
+							title={feature.title}
+							description={feature.description}
+						/>
+					))}
+				</div>
+			</section>
+
+			<section className="pb-24">
+				<h2 className="text-foreground mb-8 text-2xl font-bold tracking-tight">컴포넌트 쇼케이스</h2>
+				<ComponentShowcase />
+			</section>
+		</Container>
 	);
 }
