@@ -1,4 +1,4 @@
-import "../shared/styles/globals.css";
+import "@/shared/styles/globals.css";
 
 import type { Metadata } from "next";
 import { Geist_Mono } from "next/font/google";
@@ -6,8 +6,8 @@ import localFont from "next/font/local";
 import { ThemeProvider } from "next-themes";
 import type { PropsWithChildren } from "react";
 
-import { Footer, Header } from "../shared/layouts";
-import { Toaster } from "../shared/ui";
+import { Footer, Header } from "@/shared/layouts";
+import { Toaster } from "@/shared/ui";
 
 const pretendard = localFont({
 	src: "../shared/fonts/PretendardVariable.woff2",

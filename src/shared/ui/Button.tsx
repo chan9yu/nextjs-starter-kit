@@ -2,7 +2,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { Loader2 } from "lucide-react";
 import type { ComponentPropsWithoutRef, ElementType } from "react";
 
-import { cn } from "../utils";
+import { cn } from "@/shared/utils";
 
 const buttonVariants = cva(
 	"inline-flex cursor-pointer items-center justify-center gap-2 rounded-lg font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring disabled:cursor-not-allowed disabled:opacity-50",

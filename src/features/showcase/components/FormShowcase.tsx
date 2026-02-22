@@ -1,4 +1,4 @@
-import { Card, Input, Label, Textarea } from "../../../shared/ui";
+import { Card, Input, Label, Textarea } from "@/shared/ui";
 
 export function FormShowcase() {
 	return (

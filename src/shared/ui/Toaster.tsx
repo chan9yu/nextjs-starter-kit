@@ -2,7 +2,7 @@
 
 import { Toaster as SonnerToaster } from "sonner";
 
-import { useTheme } from "../hooks";
+import { useTheme } from "@/shared/hooks";
 
 export function Toaster() {
 	const { resolvedTheme } = useTheme();

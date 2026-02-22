@@ -1,7 +1,7 @@
 import Link from "next/link";
 
-import { ThemeToggle } from "../ui";
-import { cn } from "../utils";
+import { ThemeToggle } from "@/shared/ui";
+import { cn } from "@/shared/utils";
 
 type HeaderProps = {
 	className?: string;

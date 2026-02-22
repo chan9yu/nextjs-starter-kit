@@ -2,14 +2,13 @@ import { Code, Moon, Palette, Rocket, Zap } from "lucide-react";
 import dynamic from "next/dynamic";
 import type { ComponentProps } from "react";
 
-import { FeatureCard } from "../features/home";
-import { Container } from "../shared/layouts";
-import { Badge, Button, Skeleton } from "../shared/ui";
+import { FeatureCard } from "@/features/home";
+import { Container } from "@/shared/layouts";
+import { Badge, Button, Skeleton } from "@/shared/ui";
 
-const ComponentShowcase = dynamic(
-	() => import("../features/showcase").then((m) => ({ default: m.ComponentShowcase })),
-	{ loading: () => <Skeleton className="h-96 w-full" /> }
-);
+const ComponentShowcase = dynamic(() => import("@/features/showcase").then((m) => ({ default: m.ComponentShowcase })), {
+	loading: () => <Skeleton className="h-96 w-full" />
+});
 
 const FEATURES: ComponentProps<typeof FeatureCard>[] = [
 	{

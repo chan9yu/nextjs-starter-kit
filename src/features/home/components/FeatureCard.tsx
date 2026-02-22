@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-import { Card } from "../../../shared/ui";
+import { Card } from "@/shared/ui";
 
 type FeatureCardProps = {
 	icon: ReactNode;

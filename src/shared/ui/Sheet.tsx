@@ -5,7 +5,7 @@ import type { PropsWithChildren } from "react";
 import { createContext, use, useId, useState } from "react";
 import { useEventListener } from "usehooks-ts";
 
-import { cn } from "../utils";
+import { cn } from "@/shared/utils";
 import { Button } from "./Button";
 
 type SheetContextValue = {
@@ -40,8 +40,6 @@ function SheetRoot({ open, onClose, side = "left", className, children }: SheetP
 	const [visible, setVisible] = useState(false);
 	const titleId = useId();
 
-	// open prop에서 직접 파생 (useEffect 대신 렌더 중 상태 조정)
-	// React 권장 패턴: https://react.dev/learn/you-might-not-need-an-effect#adjusting-some-state-when-a-prop-changes
 	if (open && !visible) {
 		setVisible(true);
 	}

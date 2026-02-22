@@ -1,6 +1,6 @@
 import type { PropsWithChildren } from "react";
 
-import { cn } from "../utils";
+import { cn } from "@/shared/utils";
 
 type ContainerProps = PropsWithChildren<{ className?: string }>;
 

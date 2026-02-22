@@ -1,6 +1,6 @@
 import type { PropsWithChildren } from "react";
 
-import { Card } from "../../../shared/ui";
+import { Card } from "@/shared/ui";
 
 type ShowcaseSectionProps = PropsWithChildren<{ title: string }>;
 

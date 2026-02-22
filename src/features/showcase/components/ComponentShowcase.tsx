@@ -1,4 +1,4 @@
-import { Card, Separator } from "../../../shared/ui";
+import { Card, Separator } from "@/shared/ui";
 import { BadgeShowcase } from "./BadgeShowcase";
 import { ButtonShowcase } from "./ButtonShowcase";
 import { DialogShowcase } from "./DialogShowcase";

@@ -2,9 +2,9 @@
 
 import { Monitor, Moon, Sun } from "lucide-react";
 
-import type { Theme } from "../hooks";
-import { useTheme } from "../hooks";
-import { cn } from "../utils";
+import { useTheme } from "@/shared/hooks";
+import type { Theme } from "@/shared/hooks/useTheme";
+import { cn } from "@/shared/utils";
 import { Button } from "./Button";
 import { Skeleton } from "./Skeleton";
 

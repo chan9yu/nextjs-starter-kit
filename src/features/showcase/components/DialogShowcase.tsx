@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { Button, Dialog } from "../../../shared/ui";
+import { Button, Dialog } from "@/shared/ui";
 
 export function DialogShowcase() {
 	const [open, setOpen] = useState(false);

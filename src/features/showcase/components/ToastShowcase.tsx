@@ -2,7 +2,7 @@
 
 import { toast } from "sonner";
 
-import { Button } from "../../../shared/ui";
+import { Button } from "@/shared/ui";
 
 export function ToastShowcase() {
 	const handleDefault = () => {

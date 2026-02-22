@@ -1,6 +1,6 @@
 import type { HTMLAttributes, PropsWithChildren } from "react";
 
-import { cn } from "../utils";
+import { cn } from "@/shared/utils";
 
 type CardProps = PropsWithChildren<{ className?: string }>;
 

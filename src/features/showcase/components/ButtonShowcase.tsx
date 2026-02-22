@@ -1,4 +1,4 @@
-import { Button } from "../../../shared/ui";
+import { Button } from "@/shared/ui";
 import { ShowcaseSection } from "./ShowcaseSection";
 
 export function ButtonShowcase() {

@@ -1,6 +1,6 @@
 import type { HTMLAttributes } from "react";
 
-import { cn } from "../utils";
+import { cn } from "@/shared/utils";
 
 type SkeletonProps = HTMLAttributes<HTMLDivElement>;
 

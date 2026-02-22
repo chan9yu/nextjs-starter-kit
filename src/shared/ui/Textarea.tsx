@@ -1,6 +1,6 @@
 import type { Ref, TextareaHTMLAttributes } from "react";
 
-import { cn } from "../utils";
+import { cn } from "@/shared/utils";
 
 type TextareaProps = TextareaHTMLAttributes<HTMLTextAreaElement> & {
 	ref?: Ref<HTMLTextAreaElement>;
