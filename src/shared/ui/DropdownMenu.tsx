@@ -4,9 +4,8 @@ import type { PropsWithChildren, RefObject } from "react";
 import { createContext, use, useRef } from "react";
 import { useEventListener, useOnClickOutside } from "usehooks-ts";
 
-import { cn } from "../utils";
+import { cn } from "@/shared/utils";
 
-// DropdownMenu 래퍼 ref를 공유하여 useOnClickOutside가 트리거 영역까지 포함하도록 함
 type DropdownMenuContextValue = {
 	wrapperRef: RefObject<HTMLDivElement | null>;
 };
@@ -45,14 +44,20 @@ type DropdownMenuContentProps = PropsWithChildren<{
 	open: boolean;
 	onClose: () => void;
 	align?: "start" | "end";
+	"aria-label"?: string;
 	className?: string;
 }>;
 
-function DropdownMenuContent({ open, onClose, align = "end", className, children }: DropdownMenuContentProps) {
+function DropdownMenuContent({
+	open,
+	onClose,
+	align = "end",
+	"aria-label": ariaLabel,
+	className,
+	children
+}: DropdownMenuContentProps) {
 	const { wrapperRef } = use(DropdownMenuContext)!;
 
-	// 래퍼 외부 클릭 시 닫기 (트리거 클릭은 래퍼 내부이므로 무시됨)
-	// React 19의 RefObject<T | null>과 usehooks-ts의 RefObject<T> 타입 차이를 해소
 	useOnClickOutside(wrapperRef as RefObject<HTMLDivElement>, onClose);
 
 	const handleKeyDown = (e: KeyboardEvent) => {
@@ -66,6 +71,7 @@ function DropdownMenuContent({ open, onClose, align = "end", className, children
 	return (
 		<div
 			role="menu"
+			aria-label={ariaLabel}
 			className={cn(
 				"border-border bg-popover text-popover-foreground absolute top-full z-50 mt-1 min-w-32 overflow-hidden rounded-lg border p-1 shadow-md",
 				"animate-[zoom-in_150ms_ease-out]",
