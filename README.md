@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js Starter Kit
 
-## Getting Started
+Next.js 16 기반의 웹 애플리케이션 스타터킷입니다. 프로덕션 수준의 설정과 컴포넌트가 포함되어 있어 빠르게 프로젝트를 시작할 수 있습니다.
 
-First, run the development server:
+## 기술 스택
+
+| 분류 | 기술 |
+| --- | --- |
+| Framework | Next.js 16 (App Router), React 19 |
+| Language | TypeScript 5.9 (strict mode) |
+| Styling | Tailwind CSS 4, class-variance-authority |
+| Package Manager | pnpm 10 |
+| Runtime | Node.js 22+ |
+
+## 주요 기능
+
+- **레이아웃** -- Header, Footer, Container 기반의 앱 쉘 구조
+- **다크모드** -- 시스템 설정 감지, 수동 토글, FOUC 방지 처리 내장
+- **UI 컴포넌트** -- Button, Dialog, Card, Sheet, DropdownMenu 등 재사용 가능한 컴포넌트
+- **폼** -- react-hook-form + zod 기반 유효성 검증
+- **폰트** -- Pretendard(한글), Geist Mono(코드) 로컬 폰트 내장
+- **코드 품질** -- ESLint, Prettier, Lefthook pre-commit 자동화
+
+## 시작하기
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+개발 서버는 `http://localhost:3100`에서 실행됩니다.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 명령어
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+pnpm dev          # 개발 서버
+pnpm build        # 프로덕션 빌드
+pnpm lint         # ESLint 검사
+pnpm lint:fix     # ESLint 자동 수정
+pnpm format       # Prettier 포맷팅
+pnpm format:check # Prettier 포맷 검사
+pnpm type:check   # TypeScript 타입 검사
+```
 
-## Learn More
+## 프로젝트 구조
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+├── app/          # 라우팅 (thin layer)
+├── features/     # 기능별 모듈 (components, types, services)
+└── shared/
+    ├── ui/       # 재사용 UI 컴포넌트
+    ├── layouts/  # 앱 쉘 (Header, Footer, Container)
+    ├── hooks/    # 공용 훅
+    ├── utils/    # 유틸리티
+    ├── styles/   # 전역 CSS, 디자인 토큰
+    └── fonts/    # 로컬 폰트 파일
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 라이선스
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT
